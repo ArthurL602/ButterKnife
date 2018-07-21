@@ -1,0 +1,17 @@
+import javax.tools.JavaCompiler
+
+apply plugin: 'java'
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.google.auto.service:auto-service:1.0-rc3'
+    // 用来生成java文件
+    compile 'com.squareup:javapoet:1.8.0'
+    compile project(':butterknife-annotations')
+}
+
+tasks.withType(JavaCompile){
+    options.encoding='UTF-8'
+}
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
